@@ -35,6 +35,16 @@ def main():
         text_auto=True
     )
     grafico_lucrosegmento.update_layout(showlegend=False)
+    # Formatar os valores como moeda (Real - R$)
+    grafico_lucrosegmento.update_traces(
+        texttemplate="R$ %{y:,.2f}",  # Formata os valores como moeda com duas casas decimais
+        textposition="outside"  # Exibe os valores acima das barras
+    )
+    # Formatar o eixo Y para exibir valores monetários corretamente
+    grafico_lucrosegmento.update_layout(
+        yaxis_tickprefix="R$ ",
+        yaxis_tickformat=","
+    )
 
     #Grafico 02
     grafico_vendas_tempo = px.line(
